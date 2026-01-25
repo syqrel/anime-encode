@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://syqrel.github.io/anime-encode/sitemap.xml

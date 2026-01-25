@@ -1,0 +1,149 @@
+/* Extra CSS for Anime FFmpeg Re-Encoder Documentation */
+
+/* Improve code block styling */
+.highlight {
+    border-radius: 0.2rem;
+}
+
+/* Better button styling */
+.md-button {
+    margin: 0.5rem 0;
+}
+
+/* Improve table responsiveness */
+table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+/* Better admonition spacing */
+.admonition {
+    margin: 1.5625em 0;
+}
+
+/* Card grid improvements */
+.md-typeset .grid.cards > ul > li {
+    border-radius: 0.2rem;
+    transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.md-typeset .grid.cards > ul > li:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Improve inline code */
+code {
+    padding: 0.1rem 0.3rem;
+    font-size: 0.85em;
+}
+
+/* Better spacing for lists */
+.md-typeset ul, .md-typeset ol {
+    margin: 1em 0;
+}
+
+.md-typeset li {
+    margin: 0.5em 0;
+}
+
+/* Improve header anchors */
+.md-typeset h2[id]::before,
+.md-typeset h3[id]::before {
+    display: block;
+    content: "";
+    margin-top: -3.9rem;
+    height: 3.9rem;
+    pointer-events: none;
+}
+
+/* Better search result highlighting */
+.md-search-result__article--document {
+    padding: 1rem;
+}
+
+/* Improve mermaid diagrams */
+.mermaid {
+    text-align: center;
+    margin: 2rem 0;
+}
+
+/* Footer improvements */
+.md-footer-meta {
+    background-color: var(--md-footer-bg-color);
+}
+
+/* Better tab styling */
+.tabbed-set {
+    margin: 1.5em 0;
+}
+
+/* Improve table of contents */
+.md-sidebar--secondary {
+    order: 2;
+}
+
+@media screen and (min-width: 76.25em) {
+    .md-sidebar--secondary {
+        display: block;
+    }
+}
+
+/* Better emoji support */
+.twemoji {
+    height: 1.2em;
+    vertical-align: text-bottom;
+}
+
+/* Improve code copy button */
+.md-clipboard {
+    color: var(--md-default-fg-color--light);
+}
+
+.md-clipboard:hover {
+    color: var(--md-accent-fg-color);
+}
+
+/* Better feedback widget */
+.md-feedback {
+    margin: 2em 0;
+}
+
+/* Improve navigation tabs */
+.md-tabs {
+    background-color: var(--md-primary-fg-color);
+}
+
+/* Better version banner */
+.md-banner {
+    background-color: var(--md-primary-fg-color);
+    color: var(--md-primary-bg-color);
+}
+
+/* Custom classes for special content */
+.highlight-box {
+    padding: 1rem;
+    border-left: 4px solid var(--md-accent-fg-color);
+    background-color: var(--md-code-bg-color);
+    margin: 1rem 0;
+}
+
+/* Center images */
+.md-typeset img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Better definition lists */
+.md-typeset dd {
+    margin-left: 2em;
+    margin-bottom: 1em;
+}
+
+/* Improve keyboard key styling */
+.md-typeset kbd {
+    padding: 0.15rem 0.5rem;
+    font-size: 0.85em;
+}
