@@ -1,0 +1,43 @@
+# Anime FFmpeg Re-Encoder - robots.txt
+# https://syqrel.github.io/anime-encode/
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://syqrel.github.io/anime-encode/sitemap.xml
+
+# LLM-friendly content (for AI assistants like ChatGPT, Claude, etc.)
+# See: https://llmstxt.org/
+# llms.txt: https://syqrel.github.io/anime-encode/llms.txt
+# llms-full.txt: https://syqrel.github.io/anime-encode/llms-full.txt
+
+# Googlebot specific
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+# Bingbot
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 2
+
+# AI Crawlers - Welcome!
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: Anthropic-AI
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+# Disallow build artifacts
+Disallow: /.vitepress/
+Disallow: /assets/*.js.map

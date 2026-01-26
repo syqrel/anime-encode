@@ -1,0 +1,68 @@
+# Anime FFmpeg Re-Encoder
+
+> Automated anime encoding workflow for Google Colab with HEVC 10-bit support and free GPU acceleration.
+
+This documentation covers how to use the Anime FFmpeg Re-Encoder notebook for high-quality video encoding on Google Colab.
+
+## Overview
+
+Anime FFmpeg Re-Encoder is a free, automated workflow for encoding anime videos using Google Colab's GPU. It supports:
+- HEVC (H.265) 10-bit encoding
+- NVENC GPU acceleration (free T4 GPUs)
+- x265 CPU encoding fallback
+- Automatic download via aria2
+- Google Drive upload integration
+- Multiple quality presets (360p to 1080p)
+
+## Documentation
+
+- [Quick Start Guide](/quick-start.md): Get started in 5 minutes
+- [Installation](/installation.md): Setup requirements and dependencies
+- [Usage Guide](/usage.md): Detailed usage instructions
+- [Encoding Profiles](/profiles.md): Available quality presets explained
+- [Configuration](/configuration.md): All configuration options
+- [Custom Profiles](/advanced/custom-profiles.md): Create your own encoding profiles
+- [Batch Processing](/advanced/batch-processing.md): Process multiple files
+- [Troubleshooting](/troubleshooting.md): Common issues and solutions
+- [FAQ](/faq.md): Frequently asked questions
+
+## Key Features
+
+### Encoding Options
+- **GPU Encoding (NVENC)**: Fast hardware encoding using NVIDIA T4 GPUs
+- **CPU Encoding (x265)**: High-quality software encoding with psycho-visual optimizations
+- **10-bit Color Depth**: Prevents color banding in anime gradients
+- **Opus Audio**: Modern, efficient audio codec
+
+### Quality Profiles
+| Profile | Resolution | CRF/QP | Audio Bitrate | Use Case |
+|---------|-----------|--------|---------------|----------|
+| High Quality 1080p | 1920x1080 | 22 | 160kbps | Maximum quality |
+| Balanced 1080p | 1920x1080 | 24 | 128kbps | Quality/size balance |
+| Small 720p | 1280x720 | 26 | 112kbps | Space saving |
+| Mobile 480p | 854x480 | 28 | 96kbps | Mobile devices |
+| Mobile 360p | 640x360 | 30 | 96kbps | Low bandwidth |
+
+### Workflow Steps
+1. **Download**: aria2 downloads torrents/magnets/direct links
+2. **Encode**: FFmpeg encodes with selected profile
+3. **Upload**: Finished files auto-upload to Google Drive
+4. **Shutdown**: Optional auto-shutdown to save compute
+
+## Technical Details
+
+- **Platform**: Google Colab (Free/Pro)
+- **Video Codec**: HEVC/H.265 via NVENC or libx265
+- **Audio Codec**: Opus (libopus)
+- **Container**: MKV (Matroska)
+- **GPU**: NVIDIA T4 (Colab free tier)
+
+## Links
+
+- GitHub Repository: https://github.com/syqrel/anime-encode
+- Documentation: https://syqrel.github.io/anime-encode/
+- License: MIT
+
+## Contact
+
+For issues and feature requests, please use GitHub Issues.

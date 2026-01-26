@@ -1,0 +1,247 @@
+# Anime FFmpeg Re-Encoder - Full Documentation
+
+> Complete reference for the Anime FFmpeg Re-Encoder workflow on Google Colab.
+
+## Table of Contents
+
+1. [Introduction](#introduction)
+2. [Requirements](#requirements)
+3. [Installation](#installation)
+4. [Quick Start](#quick-start)
+5. [Encoding Profiles](#encoding-profiles)
+6. [Configuration Options](#configuration-options)
+7. [Advanced Usage](#advanced-usage)
+8. [Troubleshooting](#troubleshooting)
+9. [FAQ](#faq)
+
+---
+
+## Introduction
+
+Anime FFmpeg Re-Encoder is an automated video encoding workflow designed specifically for anime content. It runs on Google Colab, leveraging free GPU resources for fast, high-quality HEVC encoding.
+
+### Why Use This?
+
+**For Fansubbers:**
+- Consistent quality across releases
+- Standardized encoding settings
+- Batch processing for entire seasons
+
+**For Archivists:**
+- 30-50% smaller file sizes vs H.264
+- 10-bit color depth prevents banding
+- Future-proof HEVC codec
+
+**For Everyone:**
+- Free GPU acceleration
+- No local hardware required
+- Automatic Google Drive upload
+
+---
+
+## Requirements
+
+- Google Account (for Colab access)
+- Google Drive (for output storage)
+- Web browser
+- Source video files (torrent, magnet, or direct URL)
+
+---
+
+## Installation
+
+1. Open the notebook in Google Colab
+2. Mount Google Drive when prompted
+3. Run the setup cell to install dependencies:
+   - FFmpeg with NVENC support
+   - aria2 downloader
+   - mkvtoolnix
+   - mediainfo
+
+---
+
+## Quick Start
+
+```python
+# 1. Configure settings
+DOWNLOAD_URL = "magnet:?xt=urn:btih:..."
+SELECTED_PROFILE = "Balanced 1080p"
+USE_GPU = True
+
+# 2. Run the workflow
+# The notebook will:
+# - Download the source file
+# - Encode with your selected profile
+# - Upload to Google Drive
+# - Optionally shutdown
+```
+
+---
+
+## Encoding Profiles
+
+### High Quality 1080p
+- Resolution: 1920x1080
+- CRF/QP: 22
+- Audio: Opus 160kbps
+- Use case: Maximum quality archival
+
+### Balanced 1080p
+- Resolution: 1920x1080
+- CRF/QP: 24
+- Audio: Opus 128kbps
+- Use case: Quality/size balance (recommended)
+
+### Small 720p
+- Resolution: 1280x720
+- CRF/QP: 26
+- Audio: Opus 112kbps
+- Use case: Space saving
+
+### Mobile 480p
+- Resolution: 854x480
+- CRF/QP: 28
+- Audio: Opus 96kbps
+- Use case: Mobile devices
+
+### Mobile 360p
+- Resolution: 640x360
+- CRF/QP: 30
+- Audio: Opus 96kbps
+- Use case: Low bandwidth streaming
+
+---
+
+## Configuration Options
+
+### Folder Settings
+```python
+TEMP_DIR = "/content/temp_downloads"  # Temporary download location
+DRIVE_OUTPUT_FOLDER = "/content/drive/MyDrive/Anime/Downloads"  # Output location
+```
+
+### Encoding Settings
+```python
+USE_GPU = True  # True = NVENC (fast), False = x265 (quality)
+SELECTED_PROFILE = "Balanced 1080p"  # Choose from profiles above
+```
+
+### Download Settings
+```python
+DOWNLOAD_URL = ""  # Torrent, magnet, or direct URL
+ARIA2_CONCURRENT = 16  # Parallel connections
+ARIA2_SPLIT = 16  # Segments per file
+```
+
+### Workflow Control
+```python
+ENABLE_DOWNLOAD = True
+ENABLE_ENCODE = True
+ENABLE_MOVE_TO_DRIVE = True
+ENABLE_AUTO_SHUTDOWN = True
+```
+
+---
+
+## Advanced Usage
+
+### Custom Encoding Profile
+
+```python
+PROFILES["Custom"] = {
+    "height": 720,
+    "crf_qp": 23,
+    "audio": "libopus",
+    "audio_bitrate": "128k"
+}
+```
+
+### Batch Processing
+
+Place multiple video files in the temp directory. The workflow will process each file sequentially with the same profile settings.
+
+### GPU vs CPU Encoding
+
+| Feature | GPU (NVENC) | CPU (x265) |
+|---------|-------------|------------|
+| Speed | 5-10x faster | Slower |
+| Quality | Good | Best |
+| File size | Slightly larger | Smallest |
+| Availability | Requires GPU runtime | Always available |
+
+---
+
+## Troubleshooting
+
+### No GPU Available
+- Check Colab runtime type (Runtime > Change runtime type > GPU)
+- Try reconnecting or waiting for GPU availability
+
+### Encoding Fails
+- Verify source file is valid video
+- Check disk space in temp directory
+- Try CPU encoding if GPU fails
+
+### File Not in Drive
+- Ensure Drive is mounted
+- Verify output folder path exists
+- Check folder permissions
+
+### Download Fails
+- Verify URL is accessible
+- Check if torrent has seeders
+- Try alternative download source
+
+---
+
+## FAQ
+
+**Q: Is this free?**
+A: Yes, Google Colab provides free GPU access (with usage limits).
+
+**Q: What video formats are supported?**
+A: Input: MKV, MP4, WebM. Output: MKV with HEVC video.
+
+**Q: Can I use my own FFmpeg settings?**
+A: Yes, you can create custom profiles or modify the encoding command.
+
+**Q: How long does encoding take?**
+A: GPU encoding: ~1-2x real-time. CPU encoding: ~0.2-0.5x real-time.
+
+**Q: Is 10-bit encoding necessary?**
+A: For anime, yes. It prevents color banding in gradients common in animation.
+
+---
+
+## Technical Specifications
+
+### Video Encoding
+
+**NVENC (GPU)**
+```
+-c:v hevc_nvenc -preset p7 -tune hq -profile:v main10 -pix_fmt p010le
+```
+
+**x265 (CPU)**
+```
+-c:v libx265 -preset slow -profile:v main10 -pix_fmt yuv420p10le
+-x265-params "crf=CRF:aq-mode=3:psy-rd=1.5:psy-rdoq=2"
+```
+
+### Audio Encoding
+```
+-c:a libopus -b:a BITRATE -ac 2
+```
+
+### Container
+```
+-f matroska (MKV)
+```
+
+---
+
+## Links
+
+- **Website**: https://syqrel.github.io/anime-encode/
+- **GitHub**: https://github.com/syqrel/anime-encode
+- **License**: MIT
