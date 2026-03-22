@@ -28,13 +28,13 @@ hero:
 features:
   - title: Start fast
     details: Get the notebook running in a few minutes.
-    icon: 01
+    icon: 🚀
   - title: Pick a profile
     details: Balanced, archival, mobile, or custom.
-    icon: 02
+    icon: 🎛️
   - title: Let it run
     details: The notebook handles download, encode, and upload.
-    icon: 03
+    icon: ▶️
 ---
 
 ## Why Use This?

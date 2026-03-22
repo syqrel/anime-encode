@@ -22,7 +22,7 @@ export default defineConfig({
         ['link', { rel: 'apple-touch-icon', sizes: '180x180', href: '/anime-encode/favicon.ico' }],
 
         // Theme
-        ['meta', { name: 'theme-color', content: '#d85f4d' }],
+        ['meta', { name: 'theme-color', content: '#3451b2' }],
 
         // SEO Meta Tags
         ['meta', { name: 'author', content: 'syqrel' }],
@@ -46,10 +46,6 @@ export default defineConfig({
         // Canonical (helps prevent duplicate content)
         ['link', { rel: 'canonical', href: siteUrl }],
 
-        // Performance: Preconnect
-        ['link', { rel: 'preconnect', href: 'https://fonts.googleapis.com' }],
-        ['link', { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' }],
-        ['link', { rel: 'dns-prefetch', href: 'https://fonts.googleapis.com' }],
     ],
 
     markdown: {
