@@ -22,7 +22,7 @@ export default defineConfig({
         ['link', { rel: 'apple-touch-icon', sizes: '180x180', href: '/anime-encode/favicon.ico' }],
 
         // Theme
-        ['meta', { name: 'theme-color', content: '#5b6cf0' }],
+        ['meta', { name: 'theme-color', content: '#d85f4d' }],
 
         // SEO Meta Tags
         ['meta', { name: 'author', content: 'syqrel' }],
@@ -71,23 +71,15 @@ export default defineConfig({
                 ]
             },
             {
-                text: 'User Guide',
+                text: 'Usage',
                 items: [
                     { text: 'Usage', link: '/usage' },
                     { text: 'Encoding Profiles', link: '/profiles' },
                     { text: 'Configuration', link: '/configuration' }
                 ]
             },
-            {
-                text: 'Advanced',
-                items: [
-                    { text: 'Custom Profiles', link: '/advanced/custom-profiles' },
-                    { text: 'Batch Processing', link: '/advanced/batch-processing' }
-                ]
-            },
             { text: 'Troubleshooting', link: '/troubleshooting' },
-            { text: 'FAQ', link: '/faq' },
-            { text: 'About', link: '/about' }
+            { text: 'FAQ', link: '/faq' }
         ],
 
         sidebar: [
@@ -106,14 +98,6 @@ export default defineConfig({
                     { text: 'Usage', link: '/usage' },
                     { text: 'Encoding Profiles', link: '/profiles' },
                     { text: 'Configuration', link: '/configuration' }
-                ]
-            },
-            {
-                text: 'Advanced',
-                collapsed: true,
-                items: [
-                    { text: 'Custom Profiles', link: '/advanced/custom-profiles' },
-                    { text: 'Batch Processing', link: '/advanced/batch-processing' }
                 ]
             },
             {

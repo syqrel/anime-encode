@@ -12,48 +12,37 @@ head:
 
 hero:
   name: "Anime FFmpeg Re-Encoder"
-  text: "Automated encoding workflow for Google Colab"
-  tagline: Professional-grade HEVC 10-bit quality with free GPU acceleration
+  text: "Encode anime in one Colab notebook."
+  tagline: Download, encode, and upload with sensible defaults.
   actions:
     - theme: brand
-      text: Get Started
+      text: Start Here
       link: /quick-start
     - theme: alt
-      text: View on GitHub
-      link: https://github.com/syqrel/anime-encode
+      text: Installation
+      link: /installation
+    - theme: alt
+      text: Profiles
+      link: /profiles
 
 features:
-  - title: Automated Download
-    details: aria2 multi-threaded torrent & direct downloads with 16 connections optimization.
-    icon: ⬇️
-  - title: HEVC 10-bit Encoding
-    details: High-fidelity encoding using NVENC (GPU) or x265 (CPU) with 10-bit color depth.
-    icon: 🎞️
-  - title: Quality Profiles
-    details: Pre-configured presets from 360p mobile to 1080p high-bitrate archive quality.
-    icon: 🎨
-  - title: Google Drive Sync
-    details: Automatically uploads finished encodes to your Drive. No local storage needed.
-    icon: ☁️
-  - title: GPU Accelerated
-    details: Leverage Google Colab's free T4 GPUs for blazing fast hardware encoding.
-    icon: ⚡
-  - title: Auto Shutdown
-    details: Smart runtime management to save your Colab compute units after tasks finish.
-    icon: ⏱️
+  - title: Start fast
+    details: Get the notebook running in a few minutes.
+    icon: 01
+  - title: Pick a profile
+    details: Balanced, archival, mobile, or custom.
+    icon: 02
+  - title: Let it run
+    details: The notebook handles download, encode, and upload.
+    icon: 03
 ---
 
 ## Why Use This?
 
 <div class="vp-doc">
 
-### 🚀 For Fansubbers
-- **Consistent Quality**: Standardize your releases with unified encoding settings.
-- **Batched Workflow**: Process entire seasons in the background.
-
-### 🏛️ For Archivists
-- **Save Space**: 30-50% size reduction compared to H.264 sources.
-- **Preserve Quality**: 10-bit depth prevents color banding in anime gradients.
+- **Fansubbers**: Consistent output for repeated releases.
+- **Archivists**: Better quality per gigabyte.
 
 </div>
 
@@ -64,10 +53,3 @@ features:
 - **x265**: Reference HEVC encoder
 - **Opus**: High-quality audio codec
 - **Python**: Automated workflow orchestration
-
-<style>
-/* Custom tweaks for the home page content if needed */
-.vp-doc h3 {
-  margin-top: 2rem;
-}
-</style>
